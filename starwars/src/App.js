@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import styled from 'styled-components';
 import TheForce from './components/theForce';
+import Character from './components/characters';
 
 
 
@@ -36,34 +37,18 @@ const App = () => {
       <Header1Style className="Header">React Wars</Header1Style>
     
     
-    {characters.map(person => ( 
-        <TheForce type='theForce' key={person.name}>
-          <h2>
-            Name: {person.name}
-          </h2>
-          <p>
-           Birth Year : {person.birth_year}
-          </p>
-          <p>
-            Gender: {person.gender}
-          </p>
-          <p>
-            Height: {person.height}
-          </p>
-          <p>
-            Skin color: {person.skin_color}
-          </p>
-          <p>
-            Hair color: {person.hair_color}
-          </p>
-          <p>
-            Eye color: {person.eye_color}
-          </p>
-        </TheForce>
-      ))}
-    </AppDiv>
-    
-  );
+    <div style={{display:'flex', flexWrap:'wrap'}}>{characters.map(characters => ( 
+        <TheForce type='theForce' key={characters.name}>
+        <Character
+          name={characters.name}
+          birth_year={characters.birth_year}
+          gender={characters.gender}
+          height={characters.height}
+          skin_color={characters.skin_color}
+          hair_color={characters.hair_color}
+          eye_color={characters.eye_color}/>
+        </TheForce>))}</div>
+    </AppDiv>)
 }
 
 export default App;
